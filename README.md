@@ -2,7 +2,7 @@
 
 > AI Skills for catalyst R&D, literature search, agent tooling, and self-hosted solutions.
 
-About me — I work on electrocatalyst R&D for hydrogen energy (PEMFC/WE). In my spare time I vibe-code small research tools and tune my AI agents — skills, plugins, etc.
+About me — I work on electrocatalyst R&D for hydrogen energy (PEMFC/WE). In my spare time I vibe-code small research tools and tune my AI agents — skills, plugins, etc. On GitHub since 2020.
 
 ---
 
