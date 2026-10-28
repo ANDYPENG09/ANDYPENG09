@@ -15,6 +15,12 @@ Many of the tools below originated from practical problems encountered during ca
 
 ## 🧭 Applications & Quality Tools
 
+### Membrane & Gas Separation Support
+
+A bilingual, offline workbench for mixed-gas membrane tests: humid and sweep-gas conditions, GC composition, apparent permeance, separation factors, and structured technical-support reports. Demonstration records are synthetic.
+
+→ [Open the workbench](https://andypeng09.github.io/PEMFC-Electrocatalyst-Activity-Analyzer/membrane-gas-support/) · [Source and methods](https://github.com/ANDYPENG09/membrane-gas-separation-support)
+
 ### Technical Support & Quality Workbench
 
 An offline, bilingual prototype for reviewing catalyst test results, checking test conditions and user-defined specifications, documenting troubleshooting hypotheses, and preparing a traceable report. The demonstration uses synthetic scenarios and an anonymized electrochemistry example.
