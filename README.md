@@ -13,6 +13,16 @@ Many of the tools below originated from practical problems encountered during ca
 
 ---
 
+## 🧭 Applications & Quality Tools
+
+### Technical Support & Quality Workbench
+
+An offline, bilingual prototype for reviewing catalyst test results, checking test conditions and user-defined specifications, documenting troubleshooting hypotheses, and preparing a traceable report. The demonstration uses synthetic scenarios and an anonymized electrochemistry example.
+
+→ [Open the workbench](https://andypeng09.github.io/PEMFC-Electrocatalyst-Activity-Analyzer/technical-support/) · [Source and documentation](https://github.com/ANDYPENG09/PEMFC-Electrocatalyst-Activity-Analyzer/tree/main/technical-support)
+
+---
+
 ## 🔬 Featured Research Projects
 
 ### 01 · Bayesian Optimization for Electrocatalyst R&D
