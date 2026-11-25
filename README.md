@@ -1,15 +1,15 @@
 # Y. Peng
 
-**Electrocatalysis R&D | Data-Driven Catalyst Development**
+**AI for Materials & Science (AI4M/S) | Materials R&D | Scientific Computing & Automation**
 
-PEMFC · PEMWE · Pt / PtCo · IrOx · ORR / OER  
-Electrochemistry · XRD · DoE · Bayesian Optimization · Research Automation
+Materials Science · Electrocatalysis · Electrochemistry · Functional Membranes  
+Materials Informatics · Scientific Software · DoE · Bayesian Optimization · Research Agents
 
-I work on **electrocatalyst development for PEM fuel cells and water electrolysis**, with experience spanning catalyst synthesis, characterization, electrochemical evaluation, and process scale-up.
+I am an industrial materials R&D engineer with hands-on experience in **electrocatalysts, functional membranes, materials characterization, electrochemical evaluation, experimental design, and process scale-up**.
 
-My current focus is on connecting **experimental design, catalyst characterization, and data-driven optimization** to better understand synthesis–structure–activity relationships and make catalyst R&D more efficient.
+My current focus is **AI for Materials (AI4M) and AI for Science (AI4S)**: connecting domain expertise, experimental data, scientific computing, and AI-assisted workflows to accelerate materials discovery and development.
 
-Many of the tools below originated from practical problems encountered during catalyst development rather than from software development alone.
+This portfolio brings together scientific software, data-driven experimental optimization, research agents, and practical engineering tools. Many projects originate from real materials R&D problems. I am building toward reproducible, evidence-grounded, closed-loop research workflows that connect computational recommendations with experimental validation.
 
 ---
 
@@ -29,7 +29,7 @@ An offline, bilingual prototype for reviewing catalyst test results, checking te
 
 ---
 
-## 🔬 Featured Research Projects
+## 🔬 Featured AI4M/S & Scientific Computing Projects
 
 ### 01 · Bayesian Optimization for Electrocatalyst R&D
 
@@ -119,9 +119,9 @@ Tools for estimating catalyst crystallite size using:
 
 ---
 
-## 🔁 Research Workflow
+## 🔁 AI4M/S Research Workflow
 
-My longer-term goal is to connect these tools into a practical closed-loop catalyst-development workflow:
+My longer-term goal is to connect these tools into a practical closed-loop materials-development workflow, using electrocatalysis as an initial application domain:
 
 ```text
 Synthesis Variables
@@ -142,12 +142,17 @@ Bayesian Optimization
 Next Experiment
 ```
 
-Rather than treating modeling as a separate activity, I am interested in using computational methods directly inside the experimental workflow.
+Rather than treating modeling as a separate activity, I am interested in integrating scientific computation, AI-assisted literature analysis, and experimental feedback into the research workflow. The complete closed loop remains a development goal.
 
 ---
 
 ## 🎯 Research Interests
 
+- AI for Materials & AI for Science (AI4M/S)
+- Materials informatics and scientific data workflows
+- Scientific software, research agents and reproducible research automation
+- Experimental design, active learning and closed-loop materials development
+- Functional membranes and materials characterization
 - Electrocatalyst synthesis and scale-up
 - PEM fuel-cell catalysts
 - PEM water-electrolysis catalysts
@@ -178,7 +183,7 @@ I also build small tools and integrations to improve scientific and technical wo
 - Hermes Agent extensions
 - research automation utilities
 
-These projects are secondary to my catalyst work but support the same objective: **reducing repetitive work and shortening the path from an experimental question to a testable result.**
+These projects complement my experimental materials background and support the same objective: **reducing repetitive work, making scientific reasoning traceable, and shortening the path from a research question to a testable result.**
 
 ---
 
@@ -195,14 +200,14 @@ These projects are secondary to my catalyst work but support the same objective:
 
 ## About
 
-My background is primarily in **industrial electrocatalyst R&D**.
+My foundation is **industrial materials R&D**, and my developing focus is **AI4M/S, scientific computing and research automation**.
 
-I use programming, statistics, and AI-assisted development mainly as tools for solving experimental and engineering problems rather than as ends in themselves.
+I use programming, statistics, and AI-assisted development to solve experimental and engineering problems. I am actively strengthening independent Python development, machine learning, and materials informatics skills.
 
 Current direction:
 
-**experiment → characterization → data → model → next experiment**
+**scientific question → evidence → experiment → characterization → data → model → next experiment**
 
 ---
 
-*Y. Peng · Electrocatalysis R&D · Research Tools · Data-Driven Experimentation*
+*Y. Peng · AI4M/S · Materials R&D · Scientific Computing · Data-Driven Experimentation*
