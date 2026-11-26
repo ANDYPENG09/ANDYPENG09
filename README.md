@@ -27,6 +27,8 @@ flowchart TD
     L --> R
     A["Electrochemistry · CV / LSV / ECSA"] --> D["Materials data · sample ID / units / QC"]
     X["XRD · phase / domain size / ordering"] --> D
+    T["TEM / HRTEM · lattice / size / dispersion"] --> D
+    P["BET · area / pore structure"] -.-> D
     S["Synthesis · composition / process"] --> D
     D --> V["Model validation · Ridge / Gaussian process"]
     V --> B["Bayesian optimization · candidate screening"]
@@ -39,8 +41,8 @@ flowchart TD
     classDef prototype fill:#fff2d8,stroke:#b38b39,color:#49380d
     classDef planned fill:#f0eafa,stroke:#9274b0,color:#3a2851
     class Z,I,A,X,S,D,V,B existing
-    class L,R,H prototype
-    class G,E planned
+    class L,R,H,T prototype
+    class G,E,P planned
 ```
 
 | Module | Implementation |
@@ -48,6 +50,8 @@ flowchart TD
 | Scientific knowledge | [Zotero Scholar Bridge](https://github.com/ANDYPENG09/zotero-scholar-bridge) · [Zotero ima Sync](https://github.com/ANDYPENG09/zotero-ima-sync) |
 | Materials RAG | Hosted ima retrieval / local PDF and WebDAV retrieval — [prototype, PR #2](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/pull/2) |
 | Characterization | [Electrochemistry Analyzer](https://github.com/ANDYPENG09/PEMFC-Electrocatalyst-Activity-Analyzer) · [XRD Toolkit](https://github.com/ANDYPENG09/xrd-toolkit) |
+| TEM / HRTEM | [TNLA v0.1](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/tem) · lattice spacing, particle sizing, geometric dispersion |
+| BET / porosimetry | [Quantachrome adsorption analysis](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/bet) · planned, no calculation yet |
 | Materials informatics | Structured experiment data, sample-ID joins, measurement units and QC; unified database planned |
 | AI-driven optimization | [Bayesian Optimization](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst) · Ridge / Gaussian process validation · uncertainty-aware experiment planning |
 | Research Copilot | Evidence and model-report integration prototype; automated orchestration and prospective validation planned |
