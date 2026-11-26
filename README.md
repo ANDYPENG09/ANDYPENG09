@@ -28,7 +28,7 @@ flowchart TD
     A["Electrochemistry · CV / LSV / ECSA"] --> D["Materials data · sample ID / units / QC"]
     X["XRD · phase / domain size / ordering"] --> D
     T["TEM / HRTEM · lattice / size / dispersion"] --> D
-    P["BET · area / pore structure"] -.-> D
+    P["BET · area / pore structure · prototype"] --> D
     S["Synthesis · composition / process"] --> D
     D --> V["Model validation · Ridge / Gaussian process"]
     V --> B["Bayesian optimization · candidate screening"]
@@ -41,8 +41,8 @@ flowchart TD
     classDef prototype fill:#fff2d8,stroke:#b38b39,color:#49380d
     classDef planned fill:#f0eafa,stroke:#9274b0,color:#3a2851
     class Z,I,A,X,S,D,V,B existing
-    class L,R,H,T prototype
-    class G,E,P planned
+    class L,R,H,T,P prototype
+    class G,E planned
 ```
 
 | Module | Implementation |
@@ -51,12 +51,12 @@ flowchart TD
 | Materials RAG | Hosted ima retrieval / local PDF and WebDAV retrieval — [prototype, PR #2](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/pull/2) |
 | Characterization | [Electrochemistry Analyzer](https://github.com/ANDYPENG09/PEMFC-Electrocatalyst-Activity-Analyzer) · [XRD Toolkit](https://github.com/ANDYPENG09/xrd-toolkit) |
 | TEM / HRTEM | [TNLA v0.1](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/tem) · lattice spacing, particle sizing, geometric dispersion |
-| BET / porosimetry | [Quantachrome adsorption analysis](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/bet) · planned, no calculation yet |
+| BET / porosimetry | [Porous Carbon Engineering](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/bet) · BET calculation and physical QC prototype; PSD and CO₂ activation modeling planned |
 | Materials informatics | Structured experiment data, sample-ID joins, measurement units and QC; unified database planned |
 | AI-driven optimization | [Bayesian Optimization](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst) · Ridge / Gaussian process validation · uncertainty-aware experiment planning |
 | Research Copilot | Evidence and model-report integration prototype; automated orchestration and prospective validation planned |
 
-**Status:** existing scientific tools and retrospective IrOx model validation, with a verified synthetic closed-loop demonstration. Live ima/RAG authentication and retrieval, automated integration and real prospective closed-loop validation remain development goals.
+**Status:** existing scientific tools, retrospective IrOx model validation, and a synthetic RAG + BO integration demonstration using a cloud-hosted research environment and Python tools via MCP. The porous carbon workflow is an initial BET prototype. Real prospective closed-loop validation, full PSD processing and process–structure optimization remain development goals.
 
 → [Architecture, methods and IrOx case study](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst)
 
@@ -100,11 +100,29 @@ A Gaussian-process-based workflow for recommending the next experiment from exis
 - IrOx OER catalyst optimization
 - synthesis–structure–activity exploration
 
-→ [bayesian-optimization-electrocatalyst](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst)
+→ [bayesian-optimization-electrocatalyst](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst) · [RAG + MCP + BO demonstration](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/blob/main/docs/demo/PORTFOLIO.md)
 
 ---
 
-### 02 · PEMFC Electrocatalyst Activity Analyzer
+### 02 · Porous Carbon Engineering (AI4M/S)
+
+**Physics-aware characterization, data quality and CO₂ activation process–structure modeling**
+
+A developing second AI4M/S case study for porous carbon materials, connecting adsorption measurements and pore structure with activation conditions.
+
+| Stage | Scope |
+| --- | --- |
+| Initial Python prototype | Standardized isotherm input, BET regression, physical consistency screening, measured pore-volume calculation |
+| Next | Instrument export reconciliation, measurement provenance, PSD feature extraction, normalization anomaly detection |
+| Planned | CO₂ activation process–structure dataset, burn-off descriptors, uncertainty-aware surrogate modeling and multi-objective optimization |
+
+The project separates measurement-level observations from material-level features, preserves missing values and model assumptions, and excludes proprietary experimental data from public repositories.
+
+→ [Porous Carbon Engineering · code and roadmap](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/bet)
+
+---
+
+### 03 · PEMFC Electrocatalyst Activity Analyzer
 
 **Offline electrochemical analysis for PEMFC catalyst evaluation**
 
@@ -124,7 +142,7 @@ The goal is to make routine catalyst evaluation more reproducible and reduce rep
 
 ---
 
-### 03 · PtCo L1₀ XRD Ordering Analysis
+### 04 · PtCo L1₀ XRD Ordering Analysis
 
 **XRD analysis for PtCo intermetallic ordering**
 
@@ -144,7 +162,7 @@ Developed from practical PtCo catalyst characterization work and currently focus
 
 ---
 
-### 04 · XRD Crystallite Size Analysis
+### 05 · XRD Crystallite Size Analysis
 
 Tools for estimating catalyst crystallite size using:
 
@@ -174,6 +192,7 @@ Tools for estimating catalyst crystallite size using:
 - Materials informatics and scientific data workflows
 - Scientific software, research agents and reproducible research automation
 - Experimental design, active learning and closed-loop materials development
+- Porous carbon engineering, gas adsorption and CO₂ activation
 - Functional membranes and materials characterization
 - Electrocatalyst synthesis and scale-up
 - PEM fuel-cell catalysts
