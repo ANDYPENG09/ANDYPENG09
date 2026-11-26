@@ -51,12 +51,12 @@ flowchart TD
 | Materials RAG | Hosted ima retrieval / local PDF and WebDAV retrieval — [prototype, PR #2](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/pull/2) |
 | Characterization | [Electrochemistry Analyzer](https://github.com/ANDYPENG09/PEMFC-Electrocatalyst-Activity-Analyzer) · [XRD Toolkit](https://github.com/ANDYPENG09/xrd-toolkit) |
 | TEM / HRTEM | [TNLA v0.1](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/tem) · lattice spacing, particle sizing, geometric dispersion |
-| BET / porosimetry | [Porous Carbon Engineering](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/bet) · BET calculation and physical QC prototype; PSD and CO₂ activation modeling planned |
+| BET / porosimetry | [Porous Carbon Engineering](https://github.com/ANDYPENG09/ai4ms-porous-carbon-engineering) · BET recalculation and quality checks, with a data model for CO₂ activation, catalyst TEM and electrochemical tests |
 | Materials informatics | Structured experiment data, sample-ID joins, measurement units and QC; unified database planned |
 | AI-driven optimization | [Bayesian Optimization](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst) · Ridge / Gaussian process validation · uncertainty-aware experiment planning |
 | Research Copilot | Evidence and model-report integration prototype; automated orchestration and prospective validation planned |
 
-**Status:** existing scientific tools, retrospective IrOx model validation, and a synthetic RAG + BO integration demonstration using a cloud-hosted research environment and Python tools via MCP. The porous carbon workflow is an initial BET prototype. Real prospective closed-loop validation, full PSD processing and process–structure optimization remain development goals.
+**Status:** existing scientific tools, retrospective IrOx model validation, and a synthetic RAG + BO integration demonstration using a cloud-hosted research environment and Python tools via MCP. The porous carbon repository includes a reproducible BET prototype and the planned support–catalyst–electrode lineage. PSD processing, the experimental case study and prospective closed-loop validation remain development goals.
 
 → [Architecture, methods and IrOx case study](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst)
 
@@ -106,19 +106,19 @@ A Gaussian-process-based workflow for recommending the next experiment from exis
 
 ### 02 · Porous Carbon Engineering (AI4M/S)
 
-**Physics-aware characterization, data quality and CO₂ activation process–structure modeling**
+**From CO₂-etched carbon supports to catalyst particles and electrochemical performance**
 
-A developing second AI4M/S case study for porous carbon materials, connecting adsorption measurements and pore structure with activation conditions.
+The standalone repository includes a Python BET workflow for standardized isotherms, fit diagnostics and measured-pressure pore metrics, with synthetic examples and automated tests.
 
-| Stage | Scope |
+| Workstream | Scope |
 | --- | --- |
-| Initial Python prototype | Standardized isotherm input, BET regression, physical consistency screening, measured pore-volume calculation |
-| Next | Instrument export reconciliation, measurement provenance, PSD feature extraction, normalization anomaly detection |
-| Planned | CO₂ activation process–structure dataset, burn-off descriptors, uncertainty-aware surrogate modeling and multi-objective optimization |
+| CO₂ etching and pore development | BET recalculation and QC are implemented. Activation-series data and PSD feature extraction are pending. |
+| Catalyst particle TEM | Planned particle-size and dispersion measurements linked to the support and catalyst batch. |
+| Electrochemical tests | Planned ECSA and ORR measurements linked to catalyst batches and electrode preparation. |
 
-The project separates measurement-level observations from material-level features, preserves missing values and model assumptions, and excludes proprietary experimental data from public repositories.
+The case study will use matched controls and sample IDs to connect processing, pore structure, particles and performance.
 
-→ [Porous Carbon Engineering · code and roadmap](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/bet)
+→ [Porous Carbon Engineering · code, tests and roadmap](https://github.com/ANDYPENG09/ai4ms-porous-carbon-engineering)
 
 ---
 
