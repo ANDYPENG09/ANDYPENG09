@@ -13,6 +13,51 @@ This portfolio brings together scientific software, data-driven experimental opt
 
 ---
 
+## 🔁 AI4M/S Research Workflow
+
+**Materials Research Copilot — from scientific evidence to the next experiment.**
+
+A modular AI4M/S architecture connecting literature retrieval, scientific data processing, materials informatics, machine learning and human-reviewed experimental planning, with electrocatalysis as the initial application domain.
+
+```mermaid
+flowchart TD
+    Z["Zotero · literature & metadata"] --> I["Tencent ima · hosted knowledge base"]
+    Z --> L["Local RAG · PDF / WebDAV"]
+    I --> R["Evidence retrieval · source tracking"]
+    L --> R
+    A["Electrochemistry · CV / LSV / ECSA"] --> D["Materials data · sample ID / units / QC"]
+    X["XRD · phase / domain size / ordering"] --> D
+    S["Synthesis · composition / process"] --> D
+    D --> V["Model validation · Ridge / Gaussian process"]
+    V --> B["Bayesian optimization · candidate screening"]
+    R --> H["Research Copilot · evidence + model output"]
+    B --> H
+    H --> G{"Scientist review"}
+    G --> E["Selected experiment · synthesis & testing"]
+    E --> D
+    classDef existing fill:#e4f0fa,stroke:#52799a,color:#19364b
+    classDef prototype fill:#fff2d8,stroke:#b38b39,color:#49380d
+    classDef planned fill:#f0eafa,stroke:#9274b0,color:#3a2851
+    class Z,I,A,X,S,D,V,B existing
+    class L,R,H prototype
+    class G,E planned
+```
+
+| Module | Implementation |
+| --- | --- |
+| Scientific knowledge | [Zotero Scholar Bridge](https://github.com/ANDYPENG09/zotero-scholar-bridge) · [Zotero ima Sync](https://github.com/ANDYPENG09/zotero-ima-sync) |
+| Materials RAG | Hosted ima retrieval / local PDF and WebDAV retrieval — [prototype, PR #2](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/pull/2) |
+| Characterization | [Electrochemistry Analyzer](https://github.com/ANDYPENG09/PEMFC-Electrocatalyst-Activity-Analyzer) · [XRD Toolkit](https://github.com/ANDYPENG09/xrd-toolkit) |
+| Materials informatics | Structured experiment data, sample-ID joins, measurement units and QC; unified database planned |
+| AI-driven optimization | [Bayesian Optimization](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst) · Ridge / Gaussian process validation · uncertainty-aware experiment planning |
+| Research Copilot | Evidence and model-report integration prototype; automated orchestration and prospective validation planned |
+
+**Status:** existing scientific tools and retrospective IrOx model validation, with a verified synthetic closed-loop demonstration. Live ima/RAG authentication and retrieval, automated integration and real prospective closed-loop validation remain development goals.
+
+→ [Architecture, methods and IrOx case study](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst)
+
+---
+
 ## 🧭 Applications & Quality Tools
 
 ### Membrane & Gas Separation Support
@@ -116,33 +161,6 @@ Tools for estimating catalyst crystallite size using:
 | **Catalyst Search Skill** | Structured literature search for catalysis and electrocatalysis |
 | **Catalyst Design Skill** | Literature-grounded catalyst design workflow for HER / OER / ORR / PEMWE |
 | **XRD Toolkit** | Collection and integration point for diffraction-analysis tools |
-
----
-
-## 🔁 AI4M/S Research Workflow
-
-My longer-term goal is to connect these tools into a practical closed-loop materials-development workflow, using electrocatalysis as an initial application domain:
-
-```text
-Synthesis Variables
-        ↓
-Design of Experiments
-        ↓
-Catalyst Synthesis
-        ↓
-Characterization
-XRD · Electrochemistry · Particle Size
-        ↓
-Structure–Activity Dataset
-        ↓
-Statistics / Gaussian Process
-        ↓
-Bayesian Optimization
-        ↓
-Next Experiment
-```
-
-Rather than treating modeling as a separate activity, I am interested in integrating scientific computation, AI-assisted literature analysis, and experimental feedback into the research workflow. The complete closed loop remains a development goal.
 
 ---
 
