@@ -1,6 +1,6 @@
 # Y. Peng
 
-**AI for Materials & Science (AI4M/S) | Materials R&D | Scientific Computing & Automation**
+**Mechanism-driven Materials R&D | AI for Materials & Science (AI4M/S) | Scientific Computing & Automation**
 
 Materials Science · Electrocatalysis · Electrochemistry · Functional Membranes  
 Materials Informatics · Scientific Software · DoE · Bayesian Optimization · Research Agents
@@ -17,19 +17,36 @@ This portfolio brings together scientific software, data-driven experimental opt
 
 **Materials Research Copilot — from scientific evidence to the next experiment.**
 
-A modular AI4M/S architecture connecting literature retrieval, scientific data processing, materials informatics, machine learning and human-reviewed experimental planning, with electrocatalysis as the initial application domain.
+A mechanism-driven research architecture connecting **catalysis and polymer / functional membrane chemistry** with literature-informed hypotheses, controlled synthesis, experimental characterization, physics-informed materials informatics and human-reviewed experimental planning. Electrocatalysis is the initial computational case study.
 
 ```mermaid
 flowchart TD
-    Z["Zotero · literature & metadata"] --> I["Tencent ima · hosted knowledge base"]
+    Q["Scientific question · mechanism-driven materials R&D"] --> Z["Zotero · literature & metadata"]
+    Z --> I["Tencent ima · hosted knowledge base"]
     Z --> L["Local RAG · PDF / WebDAV"]
     I --> R["Evidence retrieval · source tracking"]
     L --> R
-    A["Electrochemistry · CV / LSV / ECSA"] --> D["Materials data · sample ID / units / QC"]
-    X["XRD · phase / domain size / ordering"] --> D
-    T["TEM / HRTEM · lattice / size / dispersion"] --> D
-    P["BET · area / pore structure · prototype"] --> D
-    S["Synthesis · composition / process"] --> D
+    R --> F["Published DFT · mechanistic priors"]
+    R --> M["Physicochemical hypothesis · structure–property relationships"]
+    F --> M
+    M --> C["Catalysis · alloying / doping / pore engineering"]
+    M --> P["Polymer chemistry · synthesis / functional membranes"]
+    C --> S["Controlled synthesis · composition / process"]
+    P --> S
+    P --> RD["RDKit · precursor molecular descriptors"]
+    S --> A["Electrochemistry · CV / LSV / ECSA"]
+    S --> X["XRD · phase / domain size / ordering"]
+    S --> T["TEM / HRTEM · lattice / size / dispersion"]
+    S --> BET["BET / PSD · area / pore structure"]
+    S --> XP["XPS N 1s · chemical states / peak areas"]
+    A --> D["Materials data · sample IDs / units / QC"]
+    X --> D
+    T --> D
+    BET --> D
+    XP --> D
+    RD --> D
+    S --> D
+    F -. "Separate theoretical provenance" .-> D
     D --> V["Model validation · Ridge / Gaussian process"]
     V --> B["Bayesian optimization · candidate screening"]
     R --> H["Research Copilot · evidence + model output"]
@@ -37,26 +54,35 @@ flowchart TD
     H --> G{"Scientist review"}
     G --> E["Selected experiment · synthesis & testing"]
     E --> D
+    E -. "Refine hypothesis" .-> M
+    E -. "When validated" .-> ENG["Engineering validation · device / pilot scale"]
     classDef existing fill:#e4f0fa,stroke:#52799a,color:#19364b
     classDef prototype fill:#fff2d8,stroke:#b38b39,color:#49380d
     classDef planned fill:#f0eafa,stroke:#9274b0,color:#3a2851
+    classDef experience fill:#e7f3e9,stroke:#5c8965,color:#204a30
     class Z,I,A,X,S,D,V,B existing
-    class L,R,H,T,P prototype
-    class G,E planned
+    class L,R,H,T,BET,RD prototype
+    class F,G,E,ENG planned
+    class Q,M,C,P,XP experience
 ```
+
+**Legend:** blue = existing tools / workflows; green = established experimental R&D experience (not necessarily automated software); amber = software prototype; purple = planned integration / validation. Published DFT is a literature-derived theoretical prior; independent DFT is optional future work and is not claimed as completed. XPS core-level binding energies are distinct from Pt–support binding energies.
 
 | Module | Implementation |
 | --- | --- |
 | Scientific knowledge | [Zotero Scholar Bridge](https://github.com/ANDYPENG09/zotero-scholar-bridge) · [Zotero ima Sync](https://github.com/ANDYPENG09/zotero-ima-sync) |
+| Mechanistic research | Literature-informed physicochemical hypotheses; catalysis, polymer chemistry and functional membranes; theory-to-experiment validation |
 | Materials RAG | Hosted ima retrieval / local PDF and WebDAV retrieval — [prototype, PR #2](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/pull/2) |
 | Characterization | [Electrochemistry Analyzer](https://github.com/ANDYPENG09/PEMFC-Electrocatalyst-Activity-Analyzer) · [XRD Toolkit](https://github.com/ANDYPENG09/xrd-toolkit) |
+| XPS surface chemistry | Experimental N 1s peak deconvolution experience; [chemical-state descriptor template](https://github.com/ANDYPENG09/ai4ms-porous-carbon-engineering/blob/main/data/templates/xps_n1s_components.csv); automated fitting and verified sample linkage not implemented |
+| Literature-derived first-principles knowledge | [Carbon research roadmap](https://github.com/ANDYPENG09/ai4ms-porous-carbon-engineering/blob/main/docs/first-principles.md) · model-specific binding energies, charge transfer and electronic structure as traceable priors; no independent DFT results claimed |
 | TEM / HRTEM | [TNLA v0.1](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/tem) · lattice spacing, particle sizing, geometric dispersion |
 | BET / porosimetry | [Porous Carbon Engineering](https://github.com/ANDYPENG09/ai4ms-porous-carbon-engineering) · BET and PSD prototypes, provenance checks, matched-step anomaly diagnostics and optional molecular descriptors |
 | Materials informatics | Structured experiment data, sample-ID joins, measurement units and QC; unified database planned |
 | AI-driven optimization | [Bayesian Optimization](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst) · Ridge / Gaussian process validation · uncertainty-aware experiment planning |
 | Research Copilot | Evidence and model-report integration prototype; automated orchestration and prospective validation planned |
 
-**Status:** existing scientific tools, retrospective IrOx model validation, and a synthetic RAG + BO integration demonstration using a cloud-hosted research environment and Python tools via MCP. The porous carbon repository includes BET/PSD analysis, data-quality and molecular-descriptor prototypes with a support–catalyst–electrode data model. Verified experimental linkage, predictive modeling and prospective closed-loop validation remain development goals.
+**Status:** existing scientific tools, retrospective IrOx model validation, and a synthetic RAG + BO integration demonstration using a cloud-hosted research environment and Python tools via MCP. The porous carbon repository includes BET/PSD analysis, data-quality and molecular-descriptor prototypes, an XPS chemical-state metadata template, and a literature-informed first-principles roadmap with a support–catalyst–electrode data model. Verified experimental linkage, predictive modeling and prospective closed-loop validation remain development goals.
 
 → [Architecture, methods and IrOx case study](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst)
 
@@ -106,14 +132,15 @@ A Gaussian-process-based workflow for recommending the next experiment from exis
 
 ### 02 · Porous Carbon Engineering (AI4M/S)
 
-**Pore engineering, nitrogen surface chemistry and physics-aware scientific data quality**
+**Mechanism-driven carbon surface chemistry, pore engineering and physics-informed materials informatics**
 
 The standalone repository includes Python BET and PSD workflows, measurement identity gates, matched-step anomaly diagnostics, activity unit checks, and optional RDKit precursor descriptors. Public examples are synthetic.
 
 | Workstream | Scope |
 | --- | --- |
 | CO₂ etching and pore development | BET and standardized PSD analysis prototypes; verified process–structure linkage pending. |
-| Nitrogen surface chemistry | Optional molecular descriptors and precursor/elemental-analysis schemas; experimental modeling pending. |
+| Nitrogen surface chemistry | RDKit precursor descriptors, XPS N 1s chemical-state metadata and experimental characterization; verified data linkage pending. |
+| Literature-informed first-principles knowledge | Published DFT as a model-specific mechanistic prior; independent calculations optional; no computed Pt–support binding energy results claimed. |
 | Scientific data quality | Mapping confidence, provenance gates and scaling diagnostics; candidate mappings are excluded from supervised training. |
 | Catalyst particle TEM | Planned particle-size and dispersion measurements linked to the support and catalyst batch. |
 | Electrochemical tests | Planned ECSA and ORR measurements linked to catalyst batches and electrode preparation. |
@@ -249,7 +276,7 @@ I use programming, statistics, and AI-assisted development to solve experimental
 
 Current direction:
 
-**scientific question → evidence → experiment → characterization → data → model → next experiment**
+**scientific question → literature & physical mechanism → hypothesis → materials design & synthesis → characterization → curated data & theoretical priors → model / BO → scientist review → next experiment → engineering validation**
 
 ---
 
