@@ -51,12 +51,12 @@ flowchart TD
 | Materials RAG | Hosted ima retrieval / local PDF and WebDAV retrieval — [prototype, PR #2](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/pull/2) |
 | Characterization | [Electrochemistry Analyzer](https://github.com/ANDYPENG09/PEMFC-Electrocatalyst-Activity-Analyzer) · [XRD Toolkit](https://github.com/ANDYPENG09/xrd-toolkit) |
 | TEM / HRTEM | [TNLA v0.1](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst/tree/main/research_tools/tem) · lattice spacing, particle sizing, geometric dispersion |
-| BET / porosimetry | [Porous Carbon Engineering](https://github.com/ANDYPENG09/ai4ms-porous-carbon-engineering) · BET recalculation and quality checks, with a data model for CO₂ activation, catalyst TEM and electrochemical tests |
+| BET / porosimetry | [Porous Carbon Engineering](https://github.com/ANDYPENG09/ai4ms-porous-carbon-engineering) · BET and PSD prototypes, provenance checks, matched-step anomaly diagnostics and optional molecular descriptors |
 | Materials informatics | Structured experiment data, sample-ID joins, measurement units and QC; unified database planned |
 | AI-driven optimization | [Bayesian Optimization](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst) · Ridge / Gaussian process validation · uncertainty-aware experiment planning |
 | Research Copilot | Evidence and model-report integration prototype; automated orchestration and prospective validation planned |
 
-**Status:** existing scientific tools, retrospective IrOx model validation, and a synthetic RAG + BO integration demonstration using a cloud-hosted research environment and Python tools via MCP. The porous carbon repository includes a reproducible BET prototype and the planned support–catalyst–electrode lineage. PSD processing, the experimental case study and prospective closed-loop validation remain development goals.
+**Status:** existing scientific tools, retrospective IrOx model validation, and a synthetic RAG + BO integration demonstration using a cloud-hosted research environment and Python tools via MCP. The porous carbon repository includes BET/PSD analysis, data-quality and molecular-descriptor prototypes with a support–catalyst–electrode data model. Verified experimental linkage, predictive modeling and prospective closed-loop validation remain development goals.
 
 → [Architecture, methods and IrOx case study](https://github.com/ANDYPENG09/bayesian-optimization-electrocatalyst)
 
@@ -106,17 +106,19 @@ A Gaussian-process-based workflow for recommending the next experiment from exis
 
 ### 02 · Porous Carbon Engineering (AI4M/S)
 
-**From CO₂-etched carbon supports to catalyst particles and electrochemical performance**
+**Pore engineering, nitrogen surface chemistry and physics-aware scientific data quality**
 
-The standalone repository includes a Python BET workflow for standardized isotherms, fit diagnostics and measured-pressure pore metrics, with synthetic examples and automated tests.
+The standalone repository includes Python BET and PSD workflows, measurement identity gates, matched-step anomaly diagnostics, activity unit checks, and optional RDKit precursor descriptors. Public examples are synthetic.
 
 | Workstream | Scope |
 | --- | --- |
-| CO₂ etching and pore development | BET recalculation and QC are implemented. Activation-series data and PSD feature extraction are pending. |
+| CO₂ etching and pore development | BET and standardized PSD analysis prototypes; verified process–structure linkage pending. |
+| Nitrogen surface chemistry | Optional molecular descriptors and precursor/elemental-analysis schemas; experimental modeling pending. |
+| Scientific data quality | Mapping confidence, provenance gates and scaling diagnostics; candidate mappings are excluded from supervised training. |
 | Catalyst particle TEM | Planned particle-size and dispersion measurements linked to the support and catalyst batch. |
 | Electrochemical tests | Planned ECSA and ORR measurements linked to catalyst batches and electrode preparation. |
 
-The case study will use matched controls and sample IDs to connect processing, pore structure, particles and performance.
+The workstreams preserve measurement provenance, distinguish candidate matches from confirmed identities, and aim to connect processing, pore structure, particles and performance without leaking proprietary data. [Research cases and limitations](https://github.com/ANDYPENG09/ai4ms-porous-carbon-engineering/blob/main/docs/research-cases.md).
 
 → [Porous Carbon Engineering · code, tests and roadmap](https://github.com/ANDYPENG09/ai4ms-porous-carbon-engineering)
 
